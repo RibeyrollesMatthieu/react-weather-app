@@ -1,10 +1,7 @@
 import useSWR from "swr"
+import { useAppDispatch } from "../redux/app/hooks";
+import { seCity, setCoords } from "../redux/features/citySlice";
 import { fetcher } from "../utils/fetcher"
-
-interface Coords {
-  lat: string | number;
-  lon: string | number;
-}
 
 /**
  * @typedef {Object} UseCurrentWeatherReturnType
@@ -18,7 +15,7 @@ interface Coords {
  * @param {(string | Coords)} city - the city (or its coords) to fetch data for.
  * @returns {UseCurrentWeatherReturnType} An object containing the data, the state of the fetching and the potential error.
  */
-export const useCurrentWeather = (city: string | Coords): { currentWeather: CurrentWeather, loading: boolean, error: any } => {
+export const useCurrentWeather = (city: string | CityCoords): { currentWeather: CurrentWeather, loading: boolean, error: any } => {
 
   const { data, error } = useSWR(
     `/api/current-weather?${
@@ -28,6 +25,10 @@ export const useCurrentWeather = (city: string | Coords): { currentWeather: Curr
     `, 
     fetcher
   ) as { data: CurrentWeather, error: any };
+
+  const dispatch = useAppDispatch();
+
+  if (data) dispatch(seCity({ ...data.city }));
 
   return {
     currentWeather: data,
