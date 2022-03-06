@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-enum MeasureUnit {
-  CELSIUS = 'C', 
-  KERNEL = 'F'
+export enum MeasureUnit {
+  CELSIUS = '°C', 
+  FAHRENHEIT = '°F',
+  KELVIN = '°K'
 }
 
 interface Preferences {
@@ -10,16 +11,16 @@ interface Preferences {
 }
 
 const initialState: Preferences = {
-  measure_unit: MeasureUnit.CELSIUS
+  measure_unit: MeasureUnit.KELVIN
 }
 
 const preferencesSlice = createSlice({
   name: 'preferences',
   initialState,
   reducers: {
-    setUnitMeasure: (state, action: PayloadAction<MeasureUnit>) => { state.measure_unit = action.payload; },
+    setMeasureUnit: (state, action: PayloadAction<MeasureUnit>) => { state.measure_unit = action.payload; },
   }
 });
 
-export const { setUnitMeasure } = preferencesSlice.actions;
+export const { setMeasureUnit } = preferencesSlice.actions;
 export default preferencesSlice.reducer;
