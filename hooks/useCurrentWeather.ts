@@ -16,14 +16,14 @@ import { fetcher } from "../utils/fetcher"
  * @param {(string | Coords)} city - the city (or its coords) to fetch data for.
  * @returns {UseCurrentWeatherReturnType} An object containing the data, the state of the fetching and the potential error.
  */
-export const useCurrentWeather = (city: string | CityCoords, measureUnits: MeasureUnit): { currentWeather: CurrentWeather, loading: boolean, error: any } => {
+export const useCurrentWeather = (city: string | CityCoords): { currentWeather: CurrentWeather, loading: boolean, error: any } => {
 
   const { data, error } = useSWR(
     `/api/current-weather?${
         (typeof city === 'string') 
       ? `city=${city}` 
       : `lat=${city.lat}&lon=${city.lon}`}
-    &measure_unit=${measureUnits}`, 
+    `, 
     fetcher
   ) as { data: CurrentWeather, error: any };
 

@@ -32,19 +32,12 @@ const castResultToCurrentWeather = (json: any) : CurrentWeather => {
  */
 const getCurrentWeather = async (req: NextApiRequest, res: NextApiResponse<CurrentWeather>) => {
   let params: string = '';
-  let units: string = '';
-
-  switch (req.query.measure_unit as MeasureUnit) {
-    case MeasureUnit.CELSIUS: units = 'metric'; break;
-    case MeasureUnit.FAHRENHEIT: units = 'imperial'; break;
-    default: break;
-  }
 
   /* changes the query depending if we're trying to fetch data with a city or with lat and lon */
   if (req.query.city) params = `q=${req.query.city}`.trim();
   else                params = `lat=${req.query.lat}&lon=${req.query.lon}`.trim();
 
-  await fetch(`${process.env.WEATHER_API_ENDPOINT}/weather?${params}&units=${units}&appid=${process.env.WEATHER_API_KEY}`)
+  await fetch(`${process.env.WEATHER_API_ENDPOINT}/weather?${params}&units=metric&appid=${process.env.WEATHER_API_KEY}`)
     .then(result => result.json())
     .then(json => res.status(200).json(castResultToCurrentWeather(json)))
     .catch(error => res.status(405).end());

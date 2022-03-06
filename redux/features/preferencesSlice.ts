@@ -10,8 +10,8 @@ interface Preferences {
   measure_unit: MeasureUnit;
 }
 
-const initialState: Preferences = {
-  measure_unit: MeasureUnit.KELVIN
+export const initialState: Preferences = {
+  measure_unit: MeasureUnit.CELSIUS
 }
 
 const preferencesSlice = createSlice({
