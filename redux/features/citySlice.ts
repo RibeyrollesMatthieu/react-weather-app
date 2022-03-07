@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: City = {
-  name: 'Albi'
+  name: 'Mirandol-Bourgnounac'
 }
 
 const citySlice = createSlice({

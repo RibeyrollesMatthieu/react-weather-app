@@ -1,6 +1,6 @@
 import { MeasureUnit } from "../redux/features/preferencesSlice";
 
-const roundValue = (temp: number): number => Math.round(temp * 100) / 100;
+export const roundValue = (temp: number): number => Math.round(temp * 100) / 100;
 
 /**
  * Transfom a given temperature into one with a different measure units

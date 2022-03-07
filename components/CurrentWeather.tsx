@@ -1,10 +1,9 @@
 import React from 'react'
 import { useCurrentWeather } from '../hooks/useCurrentWeather';
 import { useAppSelector } from '../redux/app/hooks';
-import { initialState, MeasureUnit } from '../redux/features/preferencesSlice';
-import { convert } from '../utils/convertor';
-import { getNext } from './header/MeasureUnitsToggler';
-
+import { initialState } from '../redux/features/preferencesSlice';
+import { convert, roundValue } from '../utils/convertor';
+import styles from './../styles/CurrentWeather.module.scss';
 /**
  * The element displaying the current weather data.
  * Fetches data and renders depending of it.  
@@ -20,13 +19,19 @@ export const CurrentWeather = () => {
    * @param {number} temp the actual temp
    * @returns {number} the converted temp
    */
-  const getTemp = (temp: number): number => convert(temp, initialState.measure_unit, measureUnit);
+  const getTemp = (temp: number): number => Math.round(convert(temp, initialState.measure_unit, measureUnit));
 
   if (error) return <>An error has occured.</>
 
   return (
-    <div>
-      Current temperature: {loading && <>Loading..</>} {currentWeather && getTemp(currentWeather.main.temp) + measureUnit} <br />
+    <div className={styles.container}>
+      {loading && <>..</>} 
+      {currentWeather && 
+        <div className={styles.currentTemp}>
+          <span>{getTemp(currentWeather.main.temp)}</span>
+          <span className={styles.upper}> {measureUnit} </span>
+        </div>}
+
       Feels like: {loading && <>Loading..</>} {currentWeather && getTemp(currentWeather.main.feels_like) + measureUnit}
     </div>
   )
