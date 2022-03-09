@@ -4,7 +4,7 @@
   background: url('/assets/static/rain-day.jpg') top no-repeat;
   background-size: cover;
   min-height: 100vh;
-  padding: l.$header-height l.$medium;
+  padding: 0 l.$medium l.$medium;
   display: flex;
   flex-direction: column;
 }

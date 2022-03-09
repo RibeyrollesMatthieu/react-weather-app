@@ -26,7 +26,12 @@ export const CurrentExtraData = () => {
 
   if (loading) return <div className={styles.container}>...</div>
 
-  const getVisibility = (value: number): { value: number, unit: string } => {
+  /**
+   * Get a metric value and returns it as meters of kmilometers.
+   * @param {number} value - the value to convert.
+   * @returns {{ value: number, unit: string }} Object with the value and the units to use.
+   */
+  const getVisibility = (value: number): { value: number; unit: string; } => {
     if (value < 1_000) return { value, unit: 'm' };
 
     return { value: value / 1_000, unit: 'km' };
