@@ -1,3 +1,5 @@
+@use './abstracts/colors' as c;
+
 .currentTemp {
   $size: 10rem;
   font-size: $size;
@@ -14,6 +16,19 @@
     font-size: 2rem;
     font-weight: 400;
   }
-
 }
 
+.currentWeather {
+  text-shadow: c.$dark-primary 0 0 10px;
+}
+
+.description {
+  float: right;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: capitalize;
+}
+
+.city {
+  margin-bottom: 2rem;
+}

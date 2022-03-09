@@ -2,7 +2,7 @@ import React from 'react'
 import { useCurrentWeather } from '../hooks/useCurrentWeather';
 import { useAppSelector } from '../redux/app/hooks';
 import { initialState } from '../redux/features/preferencesSlice';
-import { convert, roundValue } from '../utils/convertor';
+import { convert } from '../utils/convertor';
 import styles from './../styles/CurrentWeather.module.scss';
 /**
  * The element displaying the current weather data.
@@ -10,8 +10,8 @@ import styles from './../styles/CurrentWeather.module.scss';
  * Displayed fields: current temp / feels like temp
  */
 export const CurrentWeather = () => {
-  const city = useAppSelector(state => (state.city.coords?.lat && state.city.coords?.lon) ? state.city.coords : state.city.name);
   const measureUnit = useAppSelector(state => state.preferences.measure_unit);
+  const city = useAppSelector(state => state.city.name);
   const { currentWeather, loading, error } = useCurrentWeather(city);
 
   /**
@@ -27,12 +27,21 @@ export const CurrentWeather = () => {
     <div className={styles.container}>
       {loading && <>..</>} 
       {currentWeather && 
-        <div className={styles.currentTemp}>
-          <span>{getTemp(currentWeather.main.temp)}</span>
-          <span className={styles.upper}> {measureUnit} </span>
-        </div>}
 
-      Feels like: {loading && <>Loading..</>} {currentWeather && getTemp(currentWeather.main.feels_like) + measureUnit}
+        <div className={styles.currentWeather}>
+          <span className={styles.description}> {currentWeather.weather.description} </span>
+
+          <div className={styles.city}> {city.toUpperCase()} </div>
+            
+          <div className={styles.currentTemp}>
+            <span>{getTemp(currentWeather.main.temp)}</span>
+            <span className={styles.upper}> {measureUnit} </span>
+          </div>
+
+          <div> Feels like: {loading && <>Loading..</>} {getTemp(currentWeather.main.feels_like) + measureUnit} </div>
+        </div>
+      }
+
     </div>
   )
 }

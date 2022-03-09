@@ -10,8 +10,11 @@ interface CurrentWeather {
   main: {
     temp: number;
     feels_like: number;
+    humidity: number;
   };
-  city: City
+  visibility: number;
+  clouds: number;
+  city: City;
 }
 
 interface CityCoords {

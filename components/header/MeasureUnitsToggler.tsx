@@ -6,9 +6,9 @@ import styles from './../../styles/header/MeasureUnit.module.scss';
 
 export const MeasureUnitsToggler = () => {
   const dispatch = useAppDispatch();
-  const changeMeasureUnit = (measureUnit: MeasureUnit) => dispatch(setMeasureUnit(measureUnit));
   const menuRef = useRef(null);
 
+  const changeMeasureUnit = (measureUnit: MeasureUnit) => dispatch(setMeasureUnit(measureUnit));
   const toggleMenu = () => document.querySelector(`.${styles.container}`)?.classList.toggle(styles.open);
   const closeMenu = () => {
     if (document.querySelector(`.${styles.container}`)?.classList.contains(styles.open)) {

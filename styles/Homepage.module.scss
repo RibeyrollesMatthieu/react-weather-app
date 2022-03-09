@@ -1,11 +1,10 @@
 @use './abstracts/lengths' as l;
 
 .container {
-  background: url('/assets/static/rain-day.jpg');
+  background: url('/assets/static/rain-day.jpg') top no-repeat;
+  background-size: cover;
   min-height: 100vh;
   padding: l.$header-height l.$medium;
-}
-
-.city {
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
