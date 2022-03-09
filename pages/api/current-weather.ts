@@ -12,7 +12,8 @@ const castResultToCurrentWeather = (json: any) : CurrentWeather => {
   return {
     weather: {
       main: json.weather[0].main,
-      description: json.weather[0].description
+      description: json.weather[0].description,
+      icon: json.weather[0].icon
     },
     main: {
       temp: json.main.temp,

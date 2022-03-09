@@ -29,7 +29,11 @@ export const CurrentWeather = () => {
       {currentWeather && 
 
         <div className={styles.currentWeather}>
-          <span className={styles.description}> {currentWeather.weather.description} </span>
+          <span className={styles.description}> 
+            {currentWeather.weather.description} 
+            <img src={`http://openweathermap.org/img/wn/${currentWeather.weather.icon}@2x.png`} alt="" />
+          </span>
+
 
           <div className={styles.city}> {city.toUpperCase()} </div>
             

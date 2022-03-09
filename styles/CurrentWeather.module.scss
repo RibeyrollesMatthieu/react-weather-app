@@ -1,7 +1,7 @@
 @use './abstracts/colors' as c;
 
 .currentTemp {
-  $size: 10rem;
+  $size: 8rem;
   font-size: $size;
   font-weight: 900;
 
@@ -12,23 +12,33 @@
     line-height: $size;
   }
 
+  img {
+    align-self: flex-end;
+  }
+
   .upper {
     font-size: 2rem;
     font-weight: 400;
   }
 }
 
-.currentWeather {
-  text-shadow: c.$dark-primary 0 0 10px;
-}
-
 .description {
   float: right;
+  display: flex;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  width: 3rem;
+
+  img { transform: rotate(90deg); }
 }
 
 .city {
   margin-bottom: 2rem;
+  max-width: calc(100vw - 5rem);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
