@@ -1,8 +1,9 @@
 @use './abstracts/lengths' as l;
+@use './abstracts/colors' as c;
 
 .container {
-  background: url('/assets/static/rain-day.jpg') top no-repeat;
-  background-size: cover;
+  background: var(--gradient);
+  color: var(--color);
   min-height: 100vh;
   padding: 0 l.$medium l.$medium;
   display: flex;

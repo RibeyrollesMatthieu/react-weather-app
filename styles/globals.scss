@@ -2,7 +2,15 @@
 @import './reset.css';
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
+:root {
+  --gradient: linear-gradient(#0F2027, #203A43, #2C5364);
+  --color: #fff;
+  --button-background: #000;
+}
+
 body {
   font-family: 'Comfortaa', cursive;
   color: c.$white-primary;
+
+  @import './abstracts/themes';
 }

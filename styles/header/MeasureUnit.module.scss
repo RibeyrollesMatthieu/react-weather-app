@@ -8,7 +8,6 @@
   button {
     cursor: pointer;
     width: 100%;
-    background: c.$dark-primary;
     padding: .5rem 1rem;
     outline: none;
     border: none;
@@ -16,8 +15,8 @@
     transition: background .25s, color .25s;
 
     &:hover, &:focus {
-      background: c.$white-primary;
-      color: c.$dark-primary;
+      background: var(--color);
+      color: var(--button-background);
     }
   }
 
@@ -26,9 +25,12 @@
   }
 }
 
+.menu button, .container {
+  background: var(--button-background);
+}
+
 .container {
   position: absolute;
-  background: palevioletred;
   display: flex;
   flex-direction: column;
   list-style: none;

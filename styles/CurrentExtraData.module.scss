@@ -3,11 +3,11 @@
 
 .container{
   margin-top: auto;
-  background: rgba(c.$white-primary, .2);
+  background: rgba(c.$white-primary, .1);
   backdrop-filter: blur(10px);
   padding: l.$medium;
   border-radius: l.$medium;
-  border: .15rem solid c.$white-primary;
+  border: .15rem solid var(--color);
   display: flex;
   text-align: center;
   
@@ -18,7 +18,8 @@
     &:not(:last-child)::after {
       content: '';
       height: 50%;
-      background: rgba(c.$white-primary, .3);
+      background: var(--color);
+      opacity: .3;
       width: .1rem;
       display: inline-block;
       position: absolute;

@@ -41,7 +41,7 @@ const getCurrentWeather = async (req: NextApiRequest, res: NextApiResponse<Curre
   if (req.query.city) params = `q=${req.query.city}`.trim();
   else                params = `lat=${req.query.lat}&lon=${req.query.lon}`.trim();
 
-  await fetch(`${process.env.WEATHER_API_ENDPOINT}/weather?${params}&units=metric&appid=${process.env.WEATHER_API_KEY}`)
+  await fetch(`${process.env.WEATHER_API_ENDPOINT}/weather?${params}&units=metric&lang=fr&appid=${process.env.WEATHER_API_KEY}`)
     .then(result => result.json())
     .then(json => res.status(200).json(castResultToCurrentWeather(json)))
     .catch(error => res.status(405).end());
