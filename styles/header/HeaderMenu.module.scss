@@ -1,0 +1,30 @@
+@use './../abstracts/lengths' as l;
+@use './../abstracts/colors' as c;
+
+$size: l.$medium;
+$size-small: $size/2;
+
+.menu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, calc(100% + $size-small));
+  border-radius: $size-small;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .25s, opacity .25s;
+
+  li button {
+    padding: $size-small $size;
+  }
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.degrees {
+  font-size: .5rem;
+}

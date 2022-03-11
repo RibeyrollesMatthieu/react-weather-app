@@ -20,7 +20,7 @@
   .units {
     $ratio: .5em;
 
-    color: gold;
+    color: c.$yellow;
     font-size: $ratio;
     vertical-align: text-top;
     margin-left: -$ratio;
@@ -35,6 +35,7 @@
     margin-left: auto; 
     font-size: .8rem;
     opacity: .8;
+    text-transform: capitalize;
   }
 }
 
@@ -44,6 +45,6 @@
 
   svg {
     margin-right: l.$small;
-    path { stroke: gold; }
+    path { stroke: c.$yellow; }
   }
 }

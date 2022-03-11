@@ -1,8 +1,39 @@
 @use './../abstracts/lengths' as l;
+@use './../abstracts/colors' as c;
 
 .header {
   display: flex;
   height: l.$header-height;
   align-items: center;
   padding: l.$medium 0;
+
+  .settings {
+    min-width: 2rem;
+    position: relative;
+  }
+
+  .settingsButton {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    vertical-align: text-bottom;
+
+    &:hover, &:focus {
+      svg path { stroke: c.$yellow; }
+    }
+
+    svg {
+      pointer-events: none;
+      
+      path { transition: stroke .25s; }
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-size: .9rem;
+    flex: 1;
+    margin-right: 2rem;
+  }
 }

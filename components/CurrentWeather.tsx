@@ -19,7 +19,7 @@ export const CurrentWeather = () => {
     <div className={`${card.card__big}`}>
       <div className={styles.date}>
         Today
-        <span>{new Date().toLocaleDateString()}</span>  
+        <span>{new Date().toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
       </div>
 
       <div className={styles.weather}>
