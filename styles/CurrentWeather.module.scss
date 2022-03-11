@@ -1,43 +1,44 @@
 @use './abstracts/colors' as c;
 
-.currentTemp {
-  $size: 8rem;
-  font-size: $size;
-  font-weight: 900;
-
-  display: flex;
-  align-items: flex-start;
-
-  :first-child {
-    line-height: $size;
-  }
-
-  img {
-    align-self: flex-end;
-  }
-
-  .upper {
-    font-size: 2rem;
-    font-weight: 400;
-  }
-}
-
-.description {
-  float: right;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-transform: capitalize;
+.weather {
   display: flex;
   align-items: center;
-  width: 3rem;
+  flex-grow: 1;
+  
+  img {
+    margin-left: auto;
+  }
 
-  img { transform: rotate(90deg); }
+  .temp {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  
+  .units {
+    color: gold;
+    font-size: .5em;
+    vertical-align: text-top;
+    margin-left: -.5em;
+  }
+} 
+
+.date {
+  display: flex;
+  align-items: center;
+  
+  span { 
+    margin-left: auto; 
+    font-size: .8rem;
+    opacity: .8;
+  }
 }
 
-.city {
-  margin-bottom: 2rem;
-  max-width: calc(100vw - 5rem);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+.location {
+  display: flex;
+  align-items: baseline;
+
+  svg {
+    margin-right: .5rem;
+    path { stroke: gold; }
+  }
 }

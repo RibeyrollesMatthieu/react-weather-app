@@ -2,8 +2,8 @@
 @use './abstracts/colors' as c;
 
 .container {
-  background: var(--gradient);
-  color: var(--color);
+  background: #101039;
+  color: #fff;
   min-height: 100vh;
   padding: 0 l.$medium l.$medium;
   display: flex;

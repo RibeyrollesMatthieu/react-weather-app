@@ -1,0 +1,14 @@
+@use './abstracts/lengths' as l;
+
+.card {
+  background: #1A1C49;
+  border-radius: 1rem;
+}
+
+.card__big {
+  @extend .card;
+  padding: l.$medium;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+}
