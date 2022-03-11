@@ -1,8 +1,8 @@
 import React from 'react'
 import { CurrentWeather } from './CurrentWeather'
-import styles from './../styles/Homepage.module.scss';
 import { CurrentExtraData } from './CurrentExtraData';
 import { Header } from './header/Header';
+import styles from './../styles/Homepage.module.scss';
 
 export const HomePage = () => {
   return (

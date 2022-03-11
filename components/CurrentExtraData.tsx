@@ -22,10 +22,10 @@ const Data = ({ title, data }: DataProps) => {
 
 export const CurrentExtraData = () => {
   const city = useAppSelector(state => state.city.name);
-  const { currentWeather, loading } = useCurrentWeather(city);
+  const { currentWeather, loading, error } = useCurrentWeather(city);
 
   if (loading) return <div className={styles.container}>...</div>
-
+  if (error) return <div>An error has occured</div>
   /**
    * Get a metric value and returns it as meters of kmilometers.
    * @param {number} value - the value to convert.

@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { MeasureUnit } from "../../redux/features/preferencesSlice";
 
 /**
  * Cast the fetching jsoned result to an object of CurrentWeather type
