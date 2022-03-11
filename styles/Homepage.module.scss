@@ -2,8 +2,8 @@
 @use './abstracts/colors' as c;
 
 .container {
-  background: #101039;
-  color: #fff;
+  background: c.$dark-primary;
+  color: c.$white-primary;
   min-height: 100vh;
   padding: 0 l.$medium l.$medium;
   display: flex;

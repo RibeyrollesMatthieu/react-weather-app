@@ -1,4 +1,5 @@
 @use './abstracts/colors' as c;
+@use './abstracts/lengths' as l;
 
 .weather {
   display: flex;
@@ -8,19 +9,21 @@
 
   .icon {
     margin-left: auto;
-    transform: translate(15%, 0);
+    transform: l.$icon-transform;
   }
 
   .temp {
-    font-size: 3rem;
+    font-size: l.$font-xl;
     font-weight: 900;
   }
   
   .units {
+    $ratio: .5em;
+
     color: gold;
-    font-size: .5em;
+    font-size: $ratio;
     vertical-align: text-top;
-    margin-left: -.5em;
+    margin-left: -$ratio;
   }
 } 
 
@@ -40,7 +43,7 @@
   align-items: baseline;
 
   svg {
-    margin-right: .5rem;
+    margin-right: l.$small;
     path { stroke: gold; }
   }
 }

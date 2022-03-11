@@ -1,14 +1,15 @@
 @use './abstracts/lengths' as l;
+@use './abstracts/colors' as c;
 
-.card {
-  background: #1A1C49;
-  border-radius: 1rem;
+@mixin card($size) {
+  padding: $size;
+  border-radius: $size;
+  background: c.$card-background;
 }
 
 .card__big {
-  @extend .card;
-  padding: l.$large;
-  min-height: 15rem;
+  @include card(l.$large);
+  min-height: l.$card-big-height;
   display: flex;
   flex-direction: column;
 }
