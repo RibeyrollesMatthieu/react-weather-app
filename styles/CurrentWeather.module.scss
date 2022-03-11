@@ -4,9 +4,11 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  
-  img {
+  position: relative;
+
+  .icon {
     margin-left: auto;
+    transform: translate(15%, 0);
   }
 
   .temp {

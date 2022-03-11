@@ -4,6 +4,7 @@ import { useAppSelector } from '../redux/app/hooks';
 import { getTemp } from '../utils/temp';
 import styles from './../styles/CurrentWeather.module.scss';
 import card from './../styles/Card.module.scss';
+import Image from 'next/image';
 /**
  * The element displaying the current weather data.
  * Fetches data and renders depending of it.  
@@ -30,7 +31,9 @@ export const CurrentWeather = () => {
               {getTemp(currentWeather.main.temp, measureUnit)} <span className={styles.units}>{measureUnit}  </span>
             </span>
 
-            <img src={`http://openweathermap.org/img/wn/${currentWeather.weather.icon}@2x.png`} alt="" />
+            <span className={styles.icon}>
+              <Image src={`http://openweathermap.org/img/wn/${currentWeather.weather.icon}@2x.png`} alt="" width={100} height={100}/>
+            </span>
           </>  
         }
       </div>

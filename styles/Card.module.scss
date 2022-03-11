@@ -7,7 +7,7 @@
 
 .card__big {
   @extend .card;
-  padding: l.$medium;
+  padding: l.$large;
   min-height: 15rem;
   display: flex;
   flex-direction: column;
