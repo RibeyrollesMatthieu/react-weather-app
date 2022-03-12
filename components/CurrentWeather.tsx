@@ -15,14 +15,13 @@ import Image from 'next/image';
 export const CurrentWeather = () => {
   const measureUnit = useAppSelector(state => state.preferences.measure_unit);
   const city = useAppSelector(state => state.city.name);
-  const locale = useAppSelector(state => state.preferences.locale);
   const { currentWeather, loading, error } = useCurrentWeather(city);
 
   return (
     <div className={`${card.card__big}`}>
       <div className={styles.date}>
         Today
-        <span>{new Date().toLocaleDateString(locale, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
+        <span>{new Date().toLocaleDateString('locale', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
       </div>
 
       <div className={styles.weather}>
