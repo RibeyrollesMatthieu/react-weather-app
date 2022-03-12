@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { useOutsideAlerter } from '../../hooks/useOutsidealerter';
 import styles from './../../styles/header/HeaderMenu.module.scss';
 import headerStyles from './../../styles/header/Header.module.scss';
-
 import { MeasureUnitsToggler } from './MeasureUnitsToggler';
 
 export const Menu = () => {

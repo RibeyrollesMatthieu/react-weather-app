@@ -1,6 +1,7 @@
 import useSWR from "swr"
 import { useAppDispatch } from "../redux/app/hooks";
 import { seCity, setCoords } from "../redux/features/citySlice";
+import { Locale } from "../redux/features/preferencesSlice";
 import { fetcher } from "../utils/fetcher"
 
 /**

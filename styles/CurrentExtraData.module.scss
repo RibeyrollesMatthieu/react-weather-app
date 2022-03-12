@@ -1,5 +1,5 @@
 @use './abstracts/lengths' as l;
-@use './abstracts/colors' as c;
+@use './abstracts/colors.module' as c;
 
 .container{
   margin-top: auto;

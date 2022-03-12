@@ -1,6 +1,7 @@
 import React from 'react'
 import { useCurrentWeather } from '../hooks/useCurrentWeather'
 import { useAppSelector } from '../redux/app/hooks';
+import { roundValue } from '../utils/convertor';
 import styles from './../styles/CurrentExtraData.module.scss';
 
 interface DataProps {
@@ -34,7 +35,7 @@ export const CurrentExtraData = () => {
   const getVisibility = (value: number): { value: number; unit: string; } => {
     if (value < 1_000) return { value, unit: 'm' };
 
-    return { value: value / 1_000, unit: 'km' };
+    return { value: roundValue(value / 1_000), unit: 'km' };
   }
 
   return (

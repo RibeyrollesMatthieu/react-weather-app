@@ -5,21 +5,24 @@ import { getTemp } from '../utils/temp';
 import styles from './../styles/CurrentWeather.module.scss';
 import card from './../styles/Card.module.scss';
 import Image from 'next/image';
+
 /**
  * The element displaying the current weather data.
  * Fetches data and renders depending of it.  
  * Displayed fields: current temp / feels like temp
  */
+
 export const CurrentWeather = () => {
   const measureUnit = useAppSelector(state => state.preferences.measure_unit);
   const city = useAppSelector(state => state.city.name);
+  const locale = useAppSelector(state => state.preferences.locale);
   const { currentWeather, loading, error } = useCurrentWeather(city);
 
   return (
     <div className={`${card.card__big}`}>
       <div className={styles.date}>
         Today
-        <span>{new Date().toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
+        <span>{new Date().toLocaleDateString(locale, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
       </div>
 
       <div className={styles.weather}>

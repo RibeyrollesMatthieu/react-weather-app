@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Locale } from "../../utils/locales";
 
 export enum MeasureUnit {
   CELSIUS = '°C', 

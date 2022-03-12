@@ -1,0 +1,9 @@
+$dark-primary: #101039;
+$white-primary: #fff;
+$card-background: #1A1C49;
+$yellow: gold;
+
+:export {
+  cardBackground: $card-background;
+  whitePrimary: $white-primary;
+}
