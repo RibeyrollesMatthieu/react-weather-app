@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CurrentWeather } from './CurrentWeather'
 import { CurrentExtraData } from './CurrentExtraData';
 import { Header } from './header/Header';
@@ -10,11 +10,17 @@ import { setName } from '../redux/features/citySlice';
 import { setLocale } from '../redux/features/preferencesSlice';
 import { Dailies } from './weathers/Dailies';
 
+const weathersDisplay = [
+  { title: 'Today', jsx: <Hourlies /> },
+  { title: '7 days forecast', jsx: <Dailies />}
+]
+
 export const HomePage = () => {
 
   const { coords } = useAppSelector(state => state.city);
   const { name } = useCityName(coords as CityCoords);
   const dispatch = useAppDispatch();
+  const [ weathers, setWeathers ] = useState<number>(0);
 
   useEffect(() => {
     if (name) dispatch(setName(name));
@@ -24,12 +30,23 @@ export const HomePage = () => {
     dispatch(setLocale(navigator?.language || 'locale'));
   }, [dispatch]);
 
+  const changeWeathers = (index: number) => setWeathers(index); 
+
   return (
     <main className={styles.container}>
       <Header />
       <CurrentWeather />
-      <Hourlies />
-      <Dailies />
+
+      <div className={styles.weathers}>
+      {
+        weathersDisplay.map((display, index) => (
+          <button className={weathers === index ? styles.active : ''} key={display.title} onClick={() => changeWeathers(index)}>{display.title}</button>
+        ))
+      }
+      </div>
+
+      { weathersDisplay[weathers].jsx }
+
       <CurrentExtraData />
     </main>
   )

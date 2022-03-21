@@ -23,8 +23,11 @@ export const Header = () => {
         <Menu />
       </div>
 
-      {/* <MeasureUnitsToggler  /> */}
       <h1>Weather Forecast</h1>
+
+      <form action="">
+        <input type="text" />
+      </form>
     </header>
   )
 }
