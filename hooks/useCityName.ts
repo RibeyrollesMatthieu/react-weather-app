@@ -17,11 +17,11 @@ export const useCityName = (coords: CityCoords): { name: string; coords: CityCoo
   const [ name, setName ] = useState<string>('');
 
   useEffect(() => {
-    if (data) setName((data as Data[])[0].name as string);
+    if (data) setName((data as Data[])[0]?.name as string);
   }, [data]);
 
   return {
-    name,
+    name: name,
     coords: coords,
     loading: loading,
     error: error
