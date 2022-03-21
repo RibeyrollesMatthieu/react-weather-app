@@ -7,6 +7,7 @@ import { Weathers } from './weathers/Weathers';
 import { useCityName } from '../hooks/useCityName';
 import { useAppDispatch, useAppSelector } from '../redux/app/hooks';
 import { setName } from '../redux/features/citySlice';
+import { setLocale } from '../redux/features/preferencesSlice';
 
 export const HomePage = () => {
 
@@ -17,6 +18,10 @@ export const HomePage = () => {
   useEffect(() => {
     if (name) dispatch(setName(name));
   }, [dispatch, name]);
+
+  useEffect(() => {
+    dispatch(setLocale(navigator?.language || 'locale'));
+  }, [dispatch]);
 
   return (
     <main className={styles.container}>

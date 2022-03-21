@@ -13,7 +13,7 @@ import { useWeather } from '../hooks/useWeather';
  */
 
 export const CurrentWeather = () => {
-  const measureUnit = useAppSelector(state => state.preferences.measure_unit);
+  const { measure_unit, locale } = useAppSelector(state => state.preferences);
   const city = useAppSelector(state => state.city.name);
   const coords = useAppSelector(state => state.city.coords);
   
@@ -23,7 +23,7 @@ export const CurrentWeather = () => {
     <div className={`${card.card__big}`}>
       <div className={styles.date}>
         Today
-        <span>{new Date().toLocaleDateString('locale', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
+        <span>{new Date().toLocaleDateString(locale, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
       </div>
 
       <div className={styles.weather}>
@@ -32,7 +32,7 @@ export const CurrentWeather = () => {
         {weather && 
           <>
             <span className={styles.temp}>
-              {getTemp(weather.current.temp, measureUnit)} <span className={styles.units}>{measureUnit}</span>
+              {getTemp(weather.current.temp, measure_unit)} <span className={styles.units}>{measure_unit}</span>
             </span>
 
             <span className={styles.icon}>

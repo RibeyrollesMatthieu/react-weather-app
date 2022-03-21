@@ -8,10 +8,12 @@ export enum MeasureUnit {
 
 interface Preferences {
   measure_unit: MeasureUnit;
+  locale: string;
 }
 
 export const initialState: Preferences = {
-  measure_unit: MeasureUnit.CELSIUS
+  measure_unit: MeasureUnit.CELSIUS,
+  locale: 'locale'
 }
 
 const preferencesSlice = createSlice({
@@ -19,8 +21,9 @@ const preferencesSlice = createSlice({
   initialState,
   reducers: {
     setMeasureUnit: (state, action: PayloadAction<MeasureUnit>) => { state.measure_unit = action.payload; },
+    setLocale: (state, action: PayloadAction<string>) => { state.locale = action.payload; },
   }
 });
 
-export const { setMeasureUnit } = preferencesSlice.actions;
+export const { setMeasureUnit, setLocale } = preferencesSlice.actions;
 export default preferencesSlice.reducer;

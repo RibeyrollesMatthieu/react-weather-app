@@ -29,3 +29,10 @@ export const convert = (temp: number, measure_unit: MeasureUnit, desired_mesure_
 
   return roundValue(newTemp);
 }
+
+export const getDateFromEpoch = (epoch: number): Date => {
+  const date = new Date(0);
+  date.setUTCSeconds(epoch);
+
+  return date;
+}
