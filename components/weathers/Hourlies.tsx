@@ -5,13 +5,16 @@ import { useWeather } from '../../hooks/useWeather';
 import { useAppSelector } from '../../redux/app/hooks';
 import { getDateFromEpoch } from '../../utils/convertor';
 
-export const Weathers = () => {
+export const Hourlies = () => {
 
   const { coords } = useAppSelector(state => state.city);
   const { locale } = useAppSelector(state => state.preferences);
   const { weather, loading } = useWeather(coords as CityCoords);
 
   if (loading) return <>...</>
+
+  console.log(weather);
+  
 
   return (
     <div className={styles.container}>

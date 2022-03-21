@@ -32,6 +32,10 @@
   &__title {
     font-size: .66em;
     font-weight: 900;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   @include temp(1.33rem);
