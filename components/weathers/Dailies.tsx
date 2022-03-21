@@ -16,7 +16,7 @@ export const Dailies = () => {
   return (
     <div className={styles.container}>
       {
-        weather.daily.slice(1, 7).map((forecast: any, index: number) => (
+        weather.daily.slice(1, 8).map((forecast: any, index: number) => (
           <Card key={index} icon={forecast?.weather[0].icon} temp={forecast?.temp.day} title={getDateFromEpoch(forecast?.dt).toLocaleDateString(locale, { weekday: 'long' })}/>
         ))
       }
