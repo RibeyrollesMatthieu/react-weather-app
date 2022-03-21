@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: City = {
-  name: 'mirandol-bourgnounac',
+  name: '',
   coords: {
     lat: 44.1427,
     lon: 2.1686
@@ -14,9 +14,9 @@ const citySlice = createSlice({
   reducers: {
     setName: (state, action: PayloadAction<string>) => { state.name = action.payload; },
     setCoords: (state, action: PayloadAction<CityCoords>) => { state.coords = {...action.payload}; },
-    seCity: (state, action: PayloadAction<City>) => { return state = {...action.payload}; },
+    setCity: (state, action: PayloadAction<City>) => { return state = {...action.payload}; },
   }
 });
 
-export const { setName, setCoords, seCity } = citySlice.actions;
+export const { setName, setCoords, setCity } = citySlice.actions;
 export default citySlice.reducer;

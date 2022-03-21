@@ -5,8 +5,6 @@ export const useWeather = (city: CityCoords): { weather: any, loading: boolean, 
 
   const { data, error } = useSWR(`/api/weather?lat=${city.lat}&lon=${city.lon}`, fetcher);
 
-  if (data) console.log(data);
-  
   return {
     weather: data as { 
       alerts: [],

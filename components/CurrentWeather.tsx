@@ -36,7 +36,7 @@ export const CurrentWeather = () => {
             </span>
 
             <span className={styles.icon}>
-              <Icon icon={weather.current.weather.icon} />
+              <Icon icon={weather.current.weather[0].icon} />
             </span>
           </>  
         }
