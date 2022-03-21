@@ -1,10 +1,10 @@
 import React from 'react'
-import { useCurrentWeather } from '../hooks/useCurrentWeather';
 import { useAppSelector } from '../redux/app/hooks';
 import { getTemp } from '../utils/temp';
 import styles from './../styles/CurrentWeather.module.scss';
 import card from './../styles/Card.module.scss';
-import Image from 'next/image';
+import { Icon } from './Icon';
+import { useWeather } from '../hooks/useWeather';
 
 /**
  * The element displaying the current weather data.
@@ -15,7 +15,9 @@ import Image from 'next/image';
 export const CurrentWeather = () => {
   const measureUnit = useAppSelector(state => state.preferences.measure_unit);
   const city = useAppSelector(state => state.city.name);
-  const { currentWeather, loading, error } = useCurrentWeather(city);
+  const coords = useAppSelector(state => state.city.coords);
+  
+  const { weather, loading, error } = useWeather(coords as CityCoords);
 
   return (
     <div className={`${card.card__big}`}>
@@ -27,14 +29,14 @@ export const CurrentWeather = () => {
       <div className={styles.weather}>
         {error && <>Whoops. Something went wrong.</>}
         {loading && <span>..</span>}
-        {currentWeather && 
+        {weather && 
           <>
             <span className={styles.temp}>
-              {getTemp(currentWeather.main.temp, measureUnit)} <span className={styles.units}>{measureUnit}  </span>
+              {getTemp(weather.current.temp, measureUnit)} <span className={styles.units}>{measureUnit}</span>
             </span>
 
             <span className={styles.icon}>
-              <Image src={`http://openweathermap.org/img/wn/${currentWeather.weather.icon}@2x.png`} alt="" width={100} height={100}/>
+              <Icon icon={weather.current.weather.icon} />
             </span>
           </>  
         }

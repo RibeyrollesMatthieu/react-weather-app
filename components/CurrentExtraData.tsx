@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCurrentWeather } from '../hooks/useCurrentWeather'
+import { useWeather } from '../hooks/useWeather';
 import { useAppSelector } from '../redux/app/hooks';
 import { roundValue } from '../utils/convertor';
 import styles from './../styles/CurrentExtraData.module.scss';
@@ -22,8 +22,8 @@ const Data = ({ title, data }: DataProps) => {
 }
 
 export const CurrentExtraData = () => {
-  const city = useAppSelector(state => state.city.name);
-  const { currentWeather, loading, error } = useCurrentWeather(city);
+  const coords = useAppSelector(state => state.city.coords);
+  const { weather, loading, error } = useWeather(coords as CityCoords);
 
   if (loading) return <div className={styles.container}>...</div>
   if (error) return <div>An error has occured</div>
@@ -40,9 +40,9 @@ export const CurrentExtraData = () => {
 
   return (
     <div className={styles.container}>
-      <Data title='Humidity' data={{ value: currentWeather.main.humidity, unit: '%' }} />
-      <Data title='Visibility' data={ getVisibility(currentWeather.visibility) } />
-      <Data title='Clouds' data={{ value: currentWeather.clouds, unit: '%' }} />
+      <Data title='Humidity' data={{ value: weather.current.humidity, unit: '%' }} />
+      <Data title='Visibility' data={ getVisibility(weather.current.visibility) } />
+      <Data title='Clouds' data={{ value: weather.current.clouds, unit: '%' }} />
     </div>
   )
 }

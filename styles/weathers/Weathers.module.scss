@@ -1,0 +1,8 @@
+@use './../abstracts/lengths' as l;
+
+.container {
+  display: flex;
+  gap: 2rem;
+  margin-top: l.$medium;
+  overflow: auto;
+}

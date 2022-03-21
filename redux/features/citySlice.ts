@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: City = {
-  name: 'mirandol-bourgnounac'
+  name: 'mirandol-bourgnounac',
+  coords: {
+    lat: 44.1427,
+    lon: 2.1686
+  }
 }
 
 const citySlice = createSlice({

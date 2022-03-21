@@ -7,6 +7,12 @@
   background: c.$card-background;
 }
 
+.card__small {
+  @include card(l.$medium);
+  min-height: l.$card-small-height;
+  min-width: l.$card-small-height * .85;
+}
+
 .card__big {
   @include card(l.$large);
   min-height: l.$card-big-height;
