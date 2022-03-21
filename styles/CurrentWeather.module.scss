@@ -1,5 +1,6 @@
 @use './abstracts/colors.module' as c;
 @use './abstracts/lengths' as l;
+@import './mixins/temp.scss';
 
 .weather {
   display: flex;
@@ -12,19 +13,7 @@
     transform: l.$icon-transform;
   }
 
-  .temp {
-    font-size: l.$font-xl;
-    font-weight: 900;
-  }
-  
-  .units {
-    $ratio: .5em;
-
-    color: c.$yellow;
-    font-size: $ratio;
-    vertical-align: text-top;
-    margin-left: -$ratio;
-  }
+  @include temp(l.$font-xl);
 } 
 
 .date {

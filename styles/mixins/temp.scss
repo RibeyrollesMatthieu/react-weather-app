@@ -1,0 +1,15 @@
+@mixin temp($font-size: 1em) {
+  .temp {
+    font-size: $font-size;
+    font-weight: 900;
+  }
+  
+  .units {
+    $ratio: .5em;
+
+    color: c.$yellow;
+    font-size: $ratio;
+    vertical-align: text-top;
+    margin-left: -$ratio;
+  }
+}

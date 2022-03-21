@@ -8,9 +8,33 @@
 }
 
 .card__small {
+  @import './mixins/temp.scss';
+
   @include card(l.$medium);
-  min-height: l.$card-small-height;
-  min-width: l.$card-small-height * .85;
+
+  $height: l.$card-small-height;
+  min-height: $height;
+  min-width: $height;
+  max-width: $height;
+  margin-bottom: l.$medium;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-left: auto !important;
+    transform: translate(15%, -15%);
+  }
+
+  img {
+    width: $height/2 !important;
+  }
+
+  &__title {
+    font-size: .66em;
+    font-weight: 900;
+  }
+
+  @include temp(1.33rem);
 }
 
 .card__big {
