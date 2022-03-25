@@ -17,7 +17,7 @@ export const Menu = () => {
 
   return (
     <div className={styles.menu} ref={menuRef}>
-      <MeasureUnitsToggler />
+      <MeasureUnitsToggler closeMenuCallback={closeMenu} />
     </div>
   )
 }

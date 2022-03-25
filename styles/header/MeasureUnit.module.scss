@@ -13,8 +13,13 @@ $background: c.$card-background;
   background: $background;
   font-weight: 700;
 
-  &:hover, &:focus, &.active {
+  &.active {
     background: $color;
+    color: $background;
+  }
+
+  &:hover, &:focus {
+    background: c.$yellow;
     color: $background;
   }
 }

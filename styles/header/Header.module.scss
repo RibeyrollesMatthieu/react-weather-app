@@ -18,9 +18,11 @@
     outline: none;
     cursor: pointer;
     vertical-align: text-bottom;
+transition: transform .15s;
 
     &:hover, &:focus {
       svg path { stroke: c.$yellow; }
+      transform: scale(1.25);
     }
 
     svg {
