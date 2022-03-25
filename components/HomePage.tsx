@@ -23,6 +23,17 @@ export const HomePage = () => {
   const [ weathers, setWeathers ] = useState<number>(0);
 
   useEffect(() => {
+    document.addEventListener('keyup', e => {
+
+      if (e.key.toLowerCase() === ' ' && e.ctrlKey) {
+        if (document.querySelector(`#city-input`)) {
+          (document.querySelector(`#city-input`) as HTMLInputElement).focus(); 
+        }
+      }
+    })
+  }, []);
+
+  useEffect(() => {
     if (name) dispatch(setName(name));
   }, [dispatch, name]);
 

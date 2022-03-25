@@ -55,8 +55,11 @@
   border: none;
   outline: none;
   margin-left: auto;
+  transition: box-shadow .15s;
 
-  box-shadow: 
-    c.$dark-primary 0px 0px 0px 3px,
-    red 0px 0px 0px 3px;
+  &:focus {
+    box-shadow: 
+    c.$dark-primary 0 0 0 3px,
+    c.$yellow 0px 0px 0px 5px;
+  }
 }

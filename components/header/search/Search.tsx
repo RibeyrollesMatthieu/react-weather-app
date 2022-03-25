@@ -57,7 +57,7 @@ export const Search = () => {
   return (
     <div className={styles.container}>
       <form action="" onSubmit={handleSubmit} >
-        <input className={styles.input} type="text" placeholder='Enter a city..' onChange={handleInput} value={input} />
+        <input id='city-input' className={styles.input} type="text" placeholder='Look for.. (ctrl+space)' onChange={handleInput} value={input} />
       </form>
 
       <div ref={suggestionsRef}>
