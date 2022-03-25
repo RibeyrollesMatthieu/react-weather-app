@@ -11,7 +11,7 @@ import { setLocale } from '../redux/features/preferencesSlice';
 import { Dailies } from './weathers/Dailies';
 
 const weathersDisplay = [
-  { title: 'Today', jsx: <Hourlies /> },
+  { title: '12 hours forecast', jsx: <Hourlies /> },
   { title: '7 days forecast', jsx: <Dailies />}
 ]
 

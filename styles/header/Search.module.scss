@@ -1,0 +1,62 @@
+@use './../abstracts/lengths' as l;
+@use './../abstracts/colors.module' as c;
+
+.container {
+  position: relative;
+  flex-grow: 1;
+
+  form {
+    display: flex;
+  }
+}
+
+.suggestions {
+  &.hidden {
+    display: none;
+  }
+
+  position: absolute;
+  margin-top: l.$medium;
+  background: c.$dark-primary;
+  z-index: 99;
+  list-style: none;
+  width: 100%;
+  border-radius: 0 0 1rem 1rem;
+  padding: .5rem;
+
+  li {
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: .25rem;
+    position: relative;
+    transition: color .25s, border-color .25s;
+    outline: none;
+
+    &:hover, &:focus, &.focused {
+      color: c.$yellow;
+      
+      &+li {
+        border-top-color: c.$yellow;
+      }
+    }
+
+    & + li {
+      border-top: 1px solid rgba(c.$yellow, .5);
+    } 
+  }
+}
+
+.input {
+  padding: l.$small / 2 l.$small;
+  border-radius: 99vh;
+  border: none;
+  outline: none;
+  margin-left: auto;
+
+  box-shadow: 
+    c.$dark-primary 0px 0px 0px 3px,
+    red 0px 0px 0px 3px;
+}

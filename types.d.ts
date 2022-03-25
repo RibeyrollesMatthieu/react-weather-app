@@ -1,5 +1,7 @@
 interface City {
   name: string;
+  state?: string;
+  country?: string;
   coords?: CityCoords
 }
 interface CurrentWeather {

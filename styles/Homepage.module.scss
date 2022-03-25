@@ -22,15 +22,15 @@
     font-size: l.$medium;
     margin-top: l.$medium;
     cursor: pointer;
-    transition: color .25s;
-    
-    &:hover {
-      color: c.$yellow
-    }
+    transition: color .25s, text-decoration .25s;
 
-    &.active {
+    &:hover, &.active{
       color: c.$yellow;
     } 
+
+    &:focus {
+      text-decoration: underline;
+    }
   }
 
   button + button {

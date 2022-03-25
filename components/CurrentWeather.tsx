@@ -14,8 +14,7 @@ import { useWeather } from '../hooks/useWeather';
 
 export const CurrentWeather = () => {
   const { measure_unit, locale } = useAppSelector(state => state.preferences);
-  const city = useAppSelector(state => state.city.name);
-  const coords = useAppSelector(state => state.city.coords);
+  const { name, state, country, coords } = useAppSelector(state => state.city);
   
   const { weather, loading, error } = useWeather(coords as CityCoords);
 
@@ -47,7 +46,7 @@ export const CurrentWeather = () => {
           <path d="M6 7.25C6.69036 7.25 7.25 6.69036 7.25 6C7.25 5.30964 6.69036 4.75 6 4.75C5.30964 4.75 4.75 5.30964 4.75 6C4.75 6.69036 5.30964 7.25 6 7.25Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
 
-        {city}
+        {name}{state ? ',' + state : ''}{country ? ',' + country : ''}
       </div>
     </div>
   )

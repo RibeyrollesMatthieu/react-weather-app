@@ -16,7 +16,7 @@ export const Hourlies = () => {
   return (
     <div className={styles.container}>
       {
-        weather.hourly.slice(1, Math.min(13, 24 - new Date().getHours())).map((forecast: any, index: number) => (
+        weather.hourly.slice(1, 13).map((forecast: any, index: number) => (
           <Card key={index} icon={forecast?.weather[0].icon} temp={forecast?.temp} title={getDateFromEpoch(forecast?.dt).toLocaleTimeString(locale, { hour: '2-digit' })}/>
         ))
       }

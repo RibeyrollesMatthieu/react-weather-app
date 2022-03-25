@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './../../styles/header/Header.module.scss';
 import menuStyles from './../../styles/header/HeaderMenu.module.scss';
 import { Menu } from './Menu';
+import { Search } from './search/Search';
 
 export const Header = () => {
 
@@ -25,9 +26,7 @@ export const Header = () => {
 
       <h1>Weather Forecast</h1>
 
-      <form action="">
-        <input type="text" />
-      </form>
+      <Search />
     </header>
   )
 }
