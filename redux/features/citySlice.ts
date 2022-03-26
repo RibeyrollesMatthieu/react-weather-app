@@ -4,8 +4,8 @@ const initialState: City = {
   name: '',
 
   coords: {
-    lat: 44.1427,
-    lon: 2.1686
+    lat: 	48.856614,
+    lon: 	2.3522219
   }
 }
 
