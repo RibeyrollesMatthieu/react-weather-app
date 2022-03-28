@@ -4,7 +4,6 @@
 .container {
   position: relative;
   flex-grow: 1;
-
   form {
     display: flex;
   }
@@ -20,9 +19,9 @@
   background: c.$dark-primary;
   z-index: 99;
   list-style: none;
-  width: 100%;
   border-radius: 0 0 1rem 1rem;
   padding: .5rem;
+  width: 100%;
 
   li {
     cursor: pointer;
@@ -56,6 +55,8 @@
   outline: none;
   margin-left: auto;
   transition: box-shadow .15s;
+  margin-right: .5rem;
+  width: 100%;
 
   &:focus {
     box-shadow: 
