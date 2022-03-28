@@ -19,7 +19,7 @@ export const CurrentWeather = () => {
   const { weather, loading, error } = useWeather(coords as CityCoords);
 
   return (
-    <div className={`${card.card__big}`}>
+    <section className={`${card.card__big}`}>
       <div className={styles.date}>
         Today
         <span>{new Date().toLocaleDateString(locale, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</span>  
@@ -48,6 +48,6 @@ export const CurrentWeather = () => {
 
         {name}{state ? ',' + state : ''}{country ? ',' + country : ''}
       </div>
-    </div>
+    </section>
   )
 }

@@ -44,21 +44,26 @@ export const HomePage = () => {
   const changeWeathers = (index: number) => setWeathers(index); 
 
   return (
-    <main className={styles.container}>
+    <>
       <Header />
-      <CurrentWeather />
 
-      <div className={styles.weathers}>
-      {
-        weathersDisplay.map((display, index) => (
-          <button className={weathers === index ? styles.active : ''} key={display.title} onClick={() => changeWeathers(index)}>{display.title}</button>
-        ))
-      }
-      </div>
+      <main className={styles.container}>
+        <CurrentWeather />
 
-      { weathersDisplay[weathers].jsx }
+        <section className={styles.forecast}>
+          <div className={styles.weathers}>
+          {
+            weathersDisplay.map((display, index) => (
+              <button className={weathers === index ? styles.active : ''} key={display.title} onClick={() => changeWeathers(index)}>{display.title}</button>
+            ))
+          }
+          </div>
 
-      <CurrentExtraData />
-    </main>
+          { weathersDisplay[weathers].jsx }
+        </section>
+
+        <CurrentExtraData />
+      </main>
+    </>
   )
 }

@@ -44,6 +44,9 @@
 .card__big {
   @include card(l.$large);
   min-height: l.$card-big-height;
+  min-width: min(100%, l.$card-big-height * 2);
+  max-width: l.$card-big-height * 2 !important;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }

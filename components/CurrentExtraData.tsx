@@ -39,10 +39,10 @@ export const CurrentExtraData = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <Data title='Humidity' data={{ value: weather.current.humidity, unit: '%' }} />
       <Data title='Visibility' data={ getVisibility(weather.current.visibility) } />
       <Data title='Clouds' data={{ value: weather.current.clouds, unit: '%' }} />
-    </div>
+    </section>
   )
 }

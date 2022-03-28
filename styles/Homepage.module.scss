@@ -2,12 +2,23 @@
 @use './abstracts/colors.module' as c;
 
 .container {
-  background: c.$dark-primary;
   color: c.$white-primary;
-  min-height: 100vh;
-  padding: 0 l.$medium l.$medium;
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - l.$header-height);
+  overflow-y: auto;
+
+  @media screen and (min-width: 38rem) {
+    height: calc(100% - 6rem);
+    min-height: inherit;
+    overflow-x: hidden;
+  }
+}
+
+.forecast {
+  overflow: auto;
+  flex-grow: 1;
+  min-height: calc(l.$card-small-height * 2);
 }
 
 .weathers {

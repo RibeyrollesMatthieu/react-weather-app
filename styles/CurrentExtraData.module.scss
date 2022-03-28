@@ -2,7 +2,7 @@
 @use './abstracts/colors.module' as c;
 
 .container{
-  margin-top: auto;
+  margin: auto unset l.$medium unset;
   background: rgba(c.$white-primary, .1);
   backdrop-filter: blur(10px);
   padding: l.$medium;

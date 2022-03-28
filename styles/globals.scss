@@ -5,4 +5,26 @@
 body {
   font-family: 'Comfortaa', cursive;
   color: c.$white-primary;
+  background: c.$dark-primary;
+  padding: 0 l.$medium l.$medium;
+  overflow-x: hidden;
+
+  @media screen and (min-width: 38rem) and (min-height: 50rem) {
+    max-width: 25rem;
+    height: 50rem;
+    margin: l.$large auto;
+    border: .25rem solid c.$white-primary;
+    box-shadow: 0 0 5rem .15rem c.$yellow;
+    border-radius: 2rem;
+    padding-top: l.$medium;
+  }
+}
+
+#__next {
+  @media screen and (min-width: 38rem) {
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
